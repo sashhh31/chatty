@@ -1,138 +1,277 @@
-.chat-app {
-    display: flex;
-    height: 100vh;
-    background-color: #f5f5f5;
-    color: #393e46;
-    font-family: 'Arial', sans-serif;
-  }
-  .sidebar {
-    width: 25%;
-    background-color: #00adb5;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .user-profile img {
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
-  }
-  
-  .chat-list {
-    flex-grow: 1;
-    margin-top: 20px;
-  }
-  
-  .chat-item {
-    padding: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    transition: background-color 0.3s;
-  }
-  
-  .chat-item.active,
-  .chat-item:hover {
-    background-color: #ffffff;
-    color: #00adb5;
-  }
-  
-  .settings button {
-    background-color: #ffffff;
-    color: #00adb5;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .settings button:hover {
-    background-color: #eeeeee;
-  }
-  .chat-window {
-    width: 75%;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .chat-header {
-    border-bottom: 1px solid #eeeeee;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .message-area {
-    flex-grow: 1;
-    overflow-y: auto;
-    margin-bottom: 10px;
-    padding-right: 10px;
-  }
- 
-  .sender {
-    background-color: #4caf50;
-    color: #ffffff;
-    display: flex;
-    align-self: flex-end;
-    max-width: 60%;
-    min-width: fit-content;
-    margin: 15px 0;
-    padding: 10px;
-    border-radius: 10px;
-    position: relative;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .receiver {
-    background-color: #eeeeee;
-    display: flex;
-    color: #393e46;
-    align-items: flex-end;
-    left: 400px;
-    max-width: 60%;
-    margin: 15px 0;
-    padding: 10px;
-    border-radius: 10px;
-    position: relative;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  .message-input {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-top: 1px solid #eeeeee;
-  }
-  
-  .message-input input {
-    flex-grow: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 20px;
-    margin-right: 10px;
-    background-color: #f0f0f0;
-    outline: none;
-  }
-  
-  .message-input button {
-    background-color: #ff5722;
-    color: #ffffff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .message-input button:hover {
-    background-color: #e64a19;
-  }
-          
+body {
+  background-color: #0d0d0d; /* Dark background for the whole app */
+  font-family: 'Poppins', sans-serif; /* Modern font for better aesthetics */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.chat-container {
+  background-color: #1c1c1e; /* Dark background color for the container */
+  color: #e1e1e6; /* Light text color */
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 400px; /* Max width for the container */
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.chat-title {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: #ff007a; /* Neon pink accent color */
+  text-shadow: 0 0 10px #ff007a; /* Neon glow effect */
+}
+
+.chat-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chat-input {
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #2c2c34; /* Dark input background */
+  color: #e1e1e6; /* Light text color for input */
+  outline: none;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4), 0 0 10px #0deef1; /* Neon glow effect */
+  transition: all 0.3s ease;
+}
+
+.chat-input:focus {
+  border: 2px solid #00e0ff; /* Focus border color */
+  box-shadow: 0 0 10px #00e0ff, 0 0 20px #00e0ff; /* Glow on focus */
+}
+
+.chat-button {
+  background-color: #00e0ff; /* Neon blue accent color */
+  color: #1c1c1e; /* Button text color */
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4), 0 0 10px #00e0ff; /* Neon glow effect */
+}
+
+.chat-button:hover {
+  background-color: #00c6e0; /* Slightly different hover color */
+  box-shadow: 0 0 10px #00c6e0, 0 0 20px #00c6e0; /* Enhanced glow on hover */
+}
+body {
+  background-color: #0d0d0d; /* Dark background for the whole app */
+  font-family: 'Poppins', sans-serif; /* Modern font for aesthetics */
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Container */
+.header-container {
+  background-color: #1c1c1e; /* Dark background */
+  padding: 20px;
+  border-bottom: 2px solid #444; /* Bottom border for separation */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+/* Header Content */
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Title Styling */
+.header-title {
+  font-size: 2rem;
+  color: #ff007a; /* Neon pink accent color */
+  text-shadow: 0 0 10px #ff007a, 0 0 20px #ff007a; /* Neon glow effect */
+  margin: 0;
+}
+
+/* Button Styling */
+.leave-button {
+  background-color: #ff5555; /* Button background color */
+  color: #ffffff; /* Button text color */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.leave-button:hover {
+  background-color: #ff6e6e; /* Hover color for button */
+  box-shadow: 0 0 10px #ff6e6e, 0 0 20px #ff6e6e; /* Neon glow on hover */
+}
+
+/* Typing Indicator */
+.typing-indicator {
+  margin-top: 10px;
+  color: #00e0ff; /* Subtle, soft color */
+  font-style: italic;
+  text-align: center;
+}
+
+/* Chat Messages Container */
+.chat-message {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 20px;
+  max-width: 80%;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Self Messages (messages from the current user) */
+.chat-message.self {
+  align-self: flex-end;
+  background-color: #50fa7b; /* Neon green accent color */
+  color: #1e1e2f; /* Dark text color for contrast */
+  text-align: right;
+}
+
+/* Other Messages (messages from other users) */
+.chat-message.other {
+  align-self: flex-start;
+  background-color: #2b2b40; /* Darker background for other messages */
+  color: #e1e1e6; /* Light text color for contrast */
+  text-align: left;
+}
+
+/* User Name Styling */
+.chat-message-user {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #ff007a; /* Neon pink for user names */
+}
+
+/* Message Text Styling */
+.chat-message-text p {
+  padding: 10px;
+  margin: 0;
+  border-radius: 8px;
+}
+
+/* Message Container */
+.message-container {
+  width: 100%;
+  background-color: #1c1c1e; /* Dark background */
+  padding: 20px;
+  border-top: 1px solid #444; /* Subtle border for separation */
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+}
+
+/* Message Form */
+.message-form {
+  display: flex;
+  align-items: center;
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Message Input */
+.message-input {
+  flex: 1;
+  padding: 12px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #2c2c34; /* Dark input background */
+  color: #e1e1e6; /* Light text color for input */
+  outline: none;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 10px #00e0ff; /* Neon glow effect */
+  transition: all 0.3s ease;
+}
+
+.message-input:focus {
+  background-color: #333; /* Darker background on focus */
+  box-shadow: 0 0 10px #00e0ff, 0 0 20px #00e0ff; /* Enhanced glow on focus */
+}
+
+/* Send Button */
+.send-button {
+  background-color: #00e0ff; /* Neon blue accent color */
+  color: #1c1c1e; /* Button text color */
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 10px #00e0ff; /* Neon glow effect */
+}
+
+.send-button:hover {
+  background-color: #00c6e0; /* Slightly different hover color */
+  box-shadow: 0 0 10px #00c6e0, 0 0 20px #00c6e0; /* Enhanced glow on hover */
+}
+
+/* Sidebar container styling */
+.sidebar-container {
+  width: 300px; /* Fixed width for sidebar */
+  background-color: #1e1e2f; /* Dark background */
+  color: #ffffff; /* Light text color */
+  padding: 20px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  border-right: 2px solid #444; /* Right border for separation */
+  height: 100vh; /* Full viewport height */
+  overflow-y: auto; /* Scroll if content overflows */
+  position: fixed; /* Fixed position to stay on screen */
+  top: 0; /* Start from the top */
+  left: 0; /* Align to the left side */
+  z-index: 10; /* Keep above other elements */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between elements */
+}
+
+/* Title styling */
+.sidebar-title {
+  font-size: 1.8rem;
+  color: #ff79c6; /* Accent color */
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  border-bottom: 2px solid #444; /* Bottom border for separation */
+  padding-bottom: 10px; /* Padding below title */
+}
+
+/* User item styling */
+.sidebar-user {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #e1e1e6; /* Light color for user names */
+  padding: 10px;
+  background-color: #2b2b40; /* Slightly darker background for users */
+  border-radius: 8px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+  cursor: pointer; /* Pointer cursor for interactivity */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Hover effect for user items */
+.sidebar-user:hover {
+  background-color: #333; /* Highlight color on hover */
+  color: #ffffff; /* Brighter text on hover */
+}
